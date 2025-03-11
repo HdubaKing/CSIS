@@ -1,0 +1,16 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1740716948
+camera_2d.gd::GDScript::-1::1740716887::0::1::::<>Camera2D<>::
+country_list.gd::GDScript::-1::1740716887::0::1::::<>PopupPanel<>::
+hud.gd::GDScript::-1::1740716887::0::1::::<>CanvasLayer<>::
+icon.svg::CompressedTexture2D::8290092296042075053::1740716887::1740716949::1::::<><>::
+info_box.gd::GDScript::-1::1740716887::0::1::::<>Panel<>::
+internal_gov.gd::GDScript::-1::1740716887::0::1::::<>PopupPanel<>::
+left_buttons_ui.gd::GDScript::-1::1740716887::0::1::::<>CanvasLayer<>::
+main.gd::GDScript::-1::1740716887::0::1::::<>Node2D<>::
+Main.tscn::PackedScene::7497907316858759119::1740716887::0::1::::<><>::res://main.gd<>res://camera_2d.gd<>uid://bi73j6ycwd6j7::::res://world.200408.3x5400x2700.jpg<>res://hud.gd<>res://left_buttons_ui.gd<>res://internal_gov.gd<>res://country_list.gd
+province.gd::GDScript::-1::1740716887::0::1::::<>Area2D<>::
+Province.tscn::PackedScene::1406677569032059891::1740716887::0::1::::<><>::res://province.gd
+provinces-attributes.txt::TextFile::-1::1740716887::0::1::::<><>::
+provinces-nodes.txt::TextFile::-1::1740716887::0::1::::<><>::
+world.200408.3x5400x2700.jpg::CompressedTexture2D::3015709334289462790::1740716887::1740716951::1::::<><>::
