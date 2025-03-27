@@ -24,7 +24,8 @@ def update():
     df = pd.read_excel("datasheet.xlsx")
 
     # update value
-    df.loc[row, col] = val
+    df.iloc[row, col] = val
+    print(df.iloc[row, col])
 
     # save to excel file
     df.to_excel("datasheet.xlsx", index=False)
