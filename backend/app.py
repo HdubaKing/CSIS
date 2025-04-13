@@ -39,7 +39,7 @@ def new_game():
 
             df = pd.concat([df, sector_df], axis=0)
 
-    df.to_excel('temp_datasheet.xlsx')
+    df.to_excel('datasheet.xlsx')
 
     return jsonify("success")
 
