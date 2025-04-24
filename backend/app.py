@@ -104,6 +104,17 @@ def update():
 
     return jsonify("Success")
 
+@app.route('/get_country_list', methods=["GET"])
+def get_country_list():
+    # Get the country list from the Excel file
+    xls = pd.ExcelFile('datasheet.xlsx')
+    df = pd.read_excel(xls, sheet_name="buffer")
+
+    # Extract the country list from the DataFrame
+    country_list = df.columns[1:].tolist()
+
+    return jsonify(country_list)
+
 @app.route('/get_last_state', methods=["GET"])
 def get_last_state():
     # Get the last turn sheet name
@@ -117,7 +128,7 @@ def get_last_state():
     # Read the last turn datasheet
     df = pd.read_excel(xls, sheet_name=f"Turn {max_turn}")
 
-    return jsonify(df.to_dict(orient='records'))
+    return jsonify(df.loc[:3,:].to_dict(orient='records'))
 
 if __name__ == '__main__':
     app.run(debug=True)
