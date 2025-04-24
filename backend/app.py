@@ -130,5 +130,30 @@ def get_last_state():
 
     return jsonify(df.loc[:3,:].to_dict(orient='records'))
 
+@app.route('/get_time_series', methods=["GET"])
+def get_time_series():
+    data = request.json
+    print("AHGHGHGHG", data, type(data))
+    xls = pd.ExcelFile('datasheet.xlsx')
+
+    # Get the sheet names from the Excel file
+    sheet_names: List[str] = xls.sheet_names
+    turn_sheet_names = [sheet for sheet in sheet_names if 'Turn' in sheet]
+
+    # Get all stats corresponding to the given country and item
+    country = data['country']
+    item = data['item']
+    time_series = []
+
+    for sheet in turn_sheet_names:
+        df = pd.read_excel(xls, sheet_name=sheet)
+        # Find the row index for the item
+        row_index = df[df['X'] == item].index[0]
+        # Get the value for the given country
+        value = df.iloc[row_index][country]
+        time_series.append(value)
+    
+    return jsonify(time_series)
+
 if __name__ == '__main__':
     app.run(debug=True)
