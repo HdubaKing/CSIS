@@ -1,0 +1,293 @@
+[gd_scene load_steps=14 format=3 uid="uid://de3bo5ne6ch8r"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_2rrpw"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="2_1qcfq"]
+[ext_resource type="Texture2D" uid="uid://bi73j6ycwd6j7" path="res://world.200408.3x5400x2700.jpg" id="2_f5waj"]
+[ext_resource type="Script" path="res://hud.gd" id="4_4u3if"]
+[ext_resource type="Script" path="res://left_buttons_ui.gd" id="5_vmll4"]
+[ext_resource type="Script" path="res://internal_gov.gd" id="6_v1bpb"]
+[ext_resource type="Script" path="res://country_list.gd" id="7_uqc88"]
+[ext_resource type="Script" path="res://tariff.gd" id="8_xcbc6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1e7k6"]
+bg_color = Color(0.218552, 0.653507, 0.815972, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1tm7"]
+bg_color = Color(0.862357, 0.406314, 0.746742, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_souvm"]
+bg_color = Color(0.217543, 0.69858, 0.485229, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6r70"]
+bg_color = Color(0.8044, 0.390436, 0.937992, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox4nv"]
+bg_color = Color(0.0476814, 0.680927, 0.718029, 1)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_2rrpw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+limit_left = -180
+limit_top = -90
+limit_right = 180
+limit_bottom = 90
+script = ExtResource("2_1qcfq")
+
+[node name="World_200408_3x5400x2700" type="Sprite2D" parent="."]
+scale = Vector2(0.067, 0.067)
+texture = ExtResource("2_f5waj")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("4_4u3if")
+
+[node name="Top_Infos" type="HBoxContainer" parent="HUD"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="InfoBox1" type="Panel" parent="HUD/Top_Infos"]
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1e7k6")
+
+[node name="DataLabel1" type="Label" parent="HUD/Top_Infos/InfoBox1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="InfoBox2" type="Panel" parent="HUD/Top_Infos"]
+custom_minimum_size = Vector2(200, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1tm7")
+
+[node name="DataLabel2" type="Label" parent="HUD/Top_Infos/InfoBox2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="InfoBox3" type="Panel" parent="HUD/Top_Infos"]
+custom_minimum_size = Vector2(150, 10)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_souvm")
+
+[node name="DataLabel3" type="Label" parent="HUD/Top_Infos/InfoBox3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="InfoBox4" type="Panel" parent="HUD/Top_Infos"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_o6r70")
+
+[node name="DataLabel4" type="Label" parent="HUD/Top_Infos/InfoBox4"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button" type="Button" parent="HUD/Top_Infos"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ox4nv")
+
+[node name="Label" type="Label" parent="HUD/Top_Infos/Button"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 41.0
+offset_bottom = 23.0
+
+[node name="LeftButtonsUI" type="CanvasLayer" parent="."]
+script = ExtResource("5_vmll4")
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="LeftButtonsUI"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="Button1" type="Button" parent="LeftButtonsUI/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LeftButtonsUI/ButtonsContainer/Button1"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button2" type="Button" parent="LeftButtonsUI/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LeftButtonsUI/ButtonsContainer/Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button3" type="Button" parent="LeftButtonsUI/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LeftButtonsUI/ButtonsContainer/Button3"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Eco_Button" type="Button" parent="LeftButtonsUI/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LeftButtonsUI/ButtonsContainer/Eco_Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Environ_Button" type="Button" parent="LeftButtonsUI/ButtonsContainer"]
+custom_minimum_size = Vector2(150, 80)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="LeftButtonsUI/ButtonsContainer/Environ_Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Internal_gov" type="PopupPanel" parent="."]
+script = ExtResource("6_v1bpb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Internal_gov"]
+custom_minimum_size = Vector2(500, 400)
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 504.0
+offset_bottom = 404.0
+
+[node name="CloseButton" type="Button" parent="Internal_gov/VBoxContainer"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="Internal_gov/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Internal_gov/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Internal_gov/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Internal_gov/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Option_Button_List_1" type="HBoxContainer" parent="Internal_gov/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Internal_gov/VBoxContainer/Option_Button_List_1"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Internal_gov/VBoxContainer/Option_Button_List_1/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button2" type="Button" parent="Internal_gov/VBoxContainer/Option_Button_List_1"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Internal_gov/VBoxContainer/Option_Button_List_1/Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Option_Button_List_2" type="HBoxContainer" parent="Internal_gov/VBoxContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="Internal_gov/VBoxContainer/Option_Button_List_2"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Internal_gov/VBoxContainer/Option_Button_List_2/Button"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Button2" type="Button" parent="Internal_gov/VBoxContainer/Option_Button_List_2"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Internal_gov/VBoxContainer/Option_Button_List_2/Button2"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Country_List" type="PopupPanel" parent="."]
+size = Vector2i(400, 247)
+script = ExtResource("7_uqc88")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Country_List"]
+offset_right = 40.0
+offset_bottom = 40.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Country_List/ScrollContainer"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="Country_List/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Eco_Window" type="PopupPanel" parent="."]
+
+[node name="Environ_Window" type="PopupPanel" parent="."]
+
+[node name="Tariff" type="PopupPanel" parent="."]
+size = Vector2i(200, 200)
+script = ExtResource("8_xcbc6")
+
+[node name="ListCountries_Bars" type="VBoxContainer" parent="Tariff"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 266.0
+offset_bottom = 196.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tariff/ListCountries_Bars"]
+layout_mode = 2
+
+[node name="InfoLabel" type="Label" parent="Tariff/ListCountries_Bars/HBoxContainer"]
+layout_mode = 2
+
+[node name="China_box" type="HBoxContainer" parent="Tariff/ListCountries_Bars"]
+layout_mode = 2
+
+[node name="China" type="Label" parent="Tariff/ListCountries_Bars/China_box"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="Tariff/ListCountries_Bars/China_box"]
+layout_mode = 2
+alignment = 2
+
+[node name="SpinBox2" type="SpinBox" parent="Tariff/ListCountries_Bars/China_box"]
+layout_mode = 2
+
+[node name="SpinBox3" type="SpinBox" parent="Tariff/ListCountries_Bars/China_box"]
+layout_mode = 2
+
+[node name="India_box" type="HBoxContainer" parent="Tariff/ListCountries_Bars"]
+layout_mode = 2
+
+[node name="India" type="Label" parent="Tariff/ListCountries_Bars/India_box"]
+layout_mode = 2
+
+[node name="SpinBox" type="SpinBox" parent="Tariff/ListCountries_Bars/India_box"]
+layout_mode = 2
+alignment = 2
+
+[node name="SpinBox2" type="SpinBox" parent="Tariff/ListCountries_Bars/India_box"]
+layout_mode = 2
+
+[node name="SpinBox3" type="SpinBox" parent="Tariff/ListCountries_Bars/India_box"]
+layout_mode = 2
